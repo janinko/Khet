@@ -2,6 +2,8 @@
 
 :- consult('vypis.pl').
 :- consult('otevreni.pl').
+:- consult('hra.pl').
+:- consult('laser.pl').
 
 khet:-
         nacti('classic.pl'),
