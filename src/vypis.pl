@@ -1,17 +1,12 @@
-/* -*- Mode:Prolog; coding:utf-8; -*- */
-
-figurka(sfinga,0,0,dolu,cerveny).
-figurka(anubis,5,0,dolu,cerveny).
-figurka(faraon,6,0,dolu,cerveny).
-figurka(anubis,7,0,dolu,cerveny).
+/* -*- Mode:Prolog; coding:iso-8859-1; -*- */
 
 vypis:-
         vypisRadek(0),
-        write('+---+---+---+---+---+---+---+---+---+---+'), nl.
+        write('+----+----+----+----+----+----+----+----+----+----+'), nl.
 
 vypisRadek(Radek):-
         Radek < 8, !,
-        write('+---+---+---+---+---+---+---+---+---+---+'), nl,
+        write('+----+----+----+----+----+----+----+----+----+----+'), nl,
         vypisSloupec(Radek, 0), write('|'),nl,
         Radek2 is Radek +1,
         vypisRadek(Radek2).
@@ -28,21 +23,27 @@ vypisSloupec(_,_).
 vypisFigurku(Radek,Sloupec):-
         figurka(Typ, Sloupec, Radek, Smer, Barva),
         vypisTyp(Typ),
-        vypisSmer(Smer),
-        vypisBarvu(Barva).
+        vypisBarvu(Barva),
+        vypisSmer(Typ,Smer).
 vypisFigurku(_,_):-
-        write('   ').
+        write('    ').
 
 vypisTyp(sfinga):- write('S').
 vypisTyp(anubis):- write('A').
 vypisTyp(faraon):- write('F').
 vypisTyp(scarab):- write('Q').
-vypisTyp(pyramida):- write('P').
+vypisTyp(pyramid):- write('P').
 
-vypisSmer(nahoru):- write('^').
-vypisSmer(dolu):- write('v').
-vypisSmer(vlevo):- write('>').
-vypisSmer(vpravo):- write('<').
+vypisSmer(scarab,nahoru):-!, write('/ ').
+vypisSmer(scarab,dolu):-!, write('\\ ').
+vypisSmer(pyramid,dolu):-!, write('|/').
+vypisSmer(pyramid,doleva):-!, write('\\|').
+vypisSmer(pyramid,nahoru):-!, write('/|').
+vypisSmer(pyramid,doprava):-!, write('|\\').
+vypisSmer(_,nahoru):- write(' ^').
+vypisSmer(_,dolu):- write(' v').
+vypisSmer(_,doleva):- write(' <').
+vypisSmer(_,doprava):- write(' >').
 
 vypisBarvu(cerveny):- write('#').
 vypisBarvu(stribrny):- write('&').
