@@ -1,4 +1,4 @@
-/* -*- Mode:Prolog; coding:iso-8859-1; -*- */
+/* -*- Mode:Prolog; coding:utf-8; -*- */
 
 figurka(sfinga,0,0,dolu,cerveny).
 figurka(anubis,5,0,dolu,cerveny).
