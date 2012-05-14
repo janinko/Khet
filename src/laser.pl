@@ -11,7 +11,7 @@ vyhodnot_laser(Barva):-
                           
 
 posun(X,Y,Smer):-
-        X >= 0, Y>= 0, X=<10, Y=<8,
+        X >= 0, Y>= 0, X<10, Y<8,
         vypisLaser(X,Y,Smer),
         figurka(Typ,X,Y,SmerF,_),!,
         vyhodnot(Typ,SmerF,Smer,NovySmer,X,Y),
@@ -25,7 +25,7 @@ posun(X,Y,Smer):-
 vypisLaser(X,Y,Smer):-
         assert(laser(X,Y,Smer)),
         vypis,
-        sleep(1),
+        sleep(0.5),
         retract(laser(X,Y,Smer)), !.
 
 dalsi_pozice(X,Y,X2,Y,doprava):- X2 is X +1.
