@@ -5,7 +5,7 @@ figurka(pyramid,4,0,doleva,cerveny).
 figurka(pyramid,6,0,dolu,cerveny).
 figurka(pyramid,0,2,doprava,cerveny).
 figurka(pyramid,4,2,doleva,cerveny).
-figurka(pyramid,0,4,dolu,cerveny).
+figurka(pyramid,0,3,dolu,cerveny).
 figurka(pyramid,3,4,nahoru,cerveny).
 figurka(pyramid,5,4,dolu,cerveny).
 figurka(pyramid,4,3,nahoru,stribrny).

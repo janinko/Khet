@@ -18,8 +18,8 @@ figurka(pyramid,3,5,doleva,stribrny).
 
 figurka(scarab,7,0,nahoru,cerveny).
 figurka(scarab,5,3,nahoru,cerveny).
-figurka(scarab,4,4,dolu,stribrny).
-figurka(scarab,2,7,dolu,stribrny).
+figurka(scarab,4,4,nahoru,stribrny).
+figurka(scarab,2,7,nahoru,stribrny).
 
 figurka(faraon,5,0,dolu,cerveny).
 figurka(faraon,4,7,nahoru,stribrny).
