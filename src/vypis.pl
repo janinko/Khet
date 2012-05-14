@@ -47,8 +47,8 @@ vypisTyp(faraon):- write('F').
 vypisTyp(scarab):- write('Q').
 vypisTyp(pyramid):- write('P').
 
-vypisSmer(scarab,nahoru):-!, write('/ ').
-vypisSmer(scarab,dolu):-!, write('\\ ').
+vypisSmer(scarab,nahoru):-!, write(' /').
+vypisSmer(scarab,dolu):-!, write(' \\').
 vypisSmer(pyramid,dolu):-!, write('|/').
 vypisSmer(pyramid,doleva):-!, write('\\|').
 vypisSmer(pyramid,nahoru):-!, write('/|').

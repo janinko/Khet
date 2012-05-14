@@ -9,16 +9,20 @@
 % spusteni khet bez parametru spusti hru se stadartnim rozestavenim
 khet:-
         nacti('classic.pl'),!,
-        hraj.
-%khet:-
+        hraj,
+        smazFigurky.
+khet:-
+        smazFigurky.
 %        write('Poskozeny soubor classic.pl!'),nl.
 
 %spusteni hry khet s jinym nez defaultnim rozestavenim
 % napriklad imhotep, dynasty nebo vlastnim rozestavenim        
 khet(Soubor):-
         nacti(Soubor),!,
-        hraj.
-%khet(Soubor):-
+        hraj,
+        smazFigurky.
+khet(_):-
+        smazFigurky.
 %        write('Chyba nacitani souboru '),write(Soubr),nl.
 
 smazFigurky:-
@@ -28,29 +32,24 @@ smazFigurky:-
         
 
 hraj:-
+        \+ hraj(cerveny),
+        konecHry.
+     
+hraj(Barva):-
         vypis,
-        tah(cerveny),
-        vyhodnot_laser(cerveny),
-        vypis,
-        tah(stribrny),
-        vyhodnot_laser(stribrny),
-        vypis,
-        tah(cerveny),
-        vyhodnot_laser(cerveny),
-        vypis,
-        tah(stribrny),
-        vyhodnot_laser(stribrny),
-        vypis,
-        tah(cerveny),
-        vyhodnot_laser(cerveny),
-        vypis,
-        tah(stribrny),
-        vyhodnot_laser(stribrny),
-        vypis,
-        tah(cerveny),
-        vyhodnot_laser(cerveny),
-        vypis,
-        tah(stribrny),
-        vyhodnot_laser(stribrny),
-        smazFigurky.
+        tah(Barva),
+        vyhodnot_laser(Barva),!,
+        figurka(faraon,_,_,_,cerveny),
+        figurka(faraon,_,_,_,stribrny),
+        druhaBarva(Barva,DruhaBarva),!,
+        hraj(DruhaBarva).
+
+konecHry:-
+        figurka(faraon,_,_,_,cerveny),!,
+        write('Cerveny vyhral!').
+konecHry:-
+        write('Stribrny vyhral!').
+
+druhaBarva(cerveny,stribrny).
+druhaBarva(stribrny,cerveny).
         

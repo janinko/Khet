@@ -2,7 +2,7 @@
 
 
 tah(Barva):-
-        write('Tahne '), write(Barva), write(': Radek Sloupec Akce (> v < ^ r l)'),nl,flush_output,
+        write('Tahne '), write(Barva), write(': Radek Sloupec Akce (h j k l u i n m < >)'),nl,flush_output,!,
         repeat, 
                 nactiPrikaz(Vstup),
                 overPrikaz(Vstup,X,Y,P),
@@ -13,11 +13,12 @@ tah(Barva):-
 
         
 
-nactiPrikaz(Prikaz):-
+nactiPrikaz(Vstup):-
         get_code(Zn1),
         get_code(Zn2),
         get_char(Zn3),
-        Prikaz = [Zn1,Zn2,Zn3].
+        skip_line,
+        Vstup= [Zn1,Zn2,Zn3].
 
 overPrikaz([Zn1,Zn2,Zn3],X,Y,P):-
         Y is Zn1 - 48,
