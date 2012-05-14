@@ -7,23 +7,23 @@
 vyhodnot_laser(Barva):-
         figurka(sfinga,X,Y,Smer,Barva),
         dalsi_pozice(X,Y,X2,Y2,Smer),
-        \+ posun(X2,Y2,Smer).
+        \+ posunLaseru(X2,Y2,Smer).
         
                           
-% posuna laser na ziskane souradnice
+% posunLaserua laser na ziskane souradnice
 % pokud je pole prazdne vypise laser
-% pokud je na pole obsazene figurkou tka vyhodnoti zasah
-posun(X,Y,Smer):-
+% pokud je na pole obsazene figurkou tak vyhodnoti zasah
+posunLaseru(X,Y,Smer):-
         X >= 0, Y>= 0, X<10, Y<8,
         vypisLaser(X,Y,Smer),
         figurka(Typ,X,Y,SmerF,_),!,
         vyhodnot(Typ,SmerF,Smer,NovySmer,X,Y),
         dalsi_pozice(X,Y,X2,Y2,NovySmer),!,
-        posun(X2,Y2,NovySmer).
-posun(X,Y,Smer):-
+        posunLaseru(X2,Y2,NovySmer).
+posunLaseru(X,Y,Smer):-
         X >= 0, Y>= 0, X=<10, Y=<8, !,
         dalsi_pozice(X,Y,X2,Y2,Smer),
-        posun(X2,Y2,Smer).
+        posunLaseru(X2,Y2,Smer).
 
 % graficke vykreslovani laseru
 vypisLaser(X,Y,Smer):-

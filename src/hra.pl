@@ -4,11 +4,11 @@
 tah(Barva):-
         write('Tahne '), write(Barva), write(': Radek Sloupec Akce (> v < ^ r l)'),nl,flush_output,
         repeat, 
-                nactiPrikaz(Prikaz),
-                overPrikaz(Prikaz,X,Y,P),
+                nactiPrikaz(Vstup),
+                overPrikaz(Vstup,X,Y,P),
                 figurka(_,X,Y,_,Barva),
                 ziskejPrikaz(P,Prikaz),
-                Prikaz(X,Y,P),
+                provedPrikaz(Prikaz,X,Y,P),
         !.
 
         
@@ -46,12 +46,12 @@ znak('3',jihovychod).
 znak('>',doprava).
 znak('<',doleva).
 
-ziskejPrikaz(doprava,otoc/3).
-ziskejPrikaz(doleva,otoc/3).
-ziskejPrikaz(_,posun/3).
+ziskejPrikaz(doprava,otoc).
+ziskejPrikaz(doleva,otoc).
+ziskejPrikaz(_,posun).
 
-
-
+provedPrikaz(otoc,X,Y,S):- otoc(X,Y,S).
+provedPrikaz(posun,X,Y,S):- posun(X,Y,S).
 
 otoc(X,Y,SmerOtoceni):-
         figurka(Typ,X,Y,Smer,Barva),

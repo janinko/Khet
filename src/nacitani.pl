@@ -2,10 +2,10 @@
 
 % nacitani termu ze souboru
 nacti(Soubor):-
-	seeing(Stary soubor),
-	see(Sobour),
-		read(Term), 
-		nacti_term(Term),
+	seeing(StarySoubor),
+	see(Soubor),
+	read(Term), 
+	nacti_term(Term),
 	seen,
 	see(StarySoubor).
 
@@ -51,12 +51,12 @@ spravnySmer(doprava).
 %kontrola pravidel : umisteni figurky, kontrola umisteni dvou figurek na stejnem policku,
 % kontroluje umisten figurky na hraci desce
 kontrola_pravidel(figurka(Typ,X,Y,Smer,Barva)):-
-	0=<X=<9,0=<Y=<7,
+	0=<X, X=<9,0=<Y, Y=<7,
 	\+ figurka(_,X,Y,_,_),
 	kontrola_umisteni(Typ,X,Y,Smer,Barva).
 
 %kontrola umisteni sfingy
-kontrola_umisteni(sfinga,0,0,dolu,cervena).
+kontrola_umisteni(sfinga,0,0,dolu,cerveny).
 kontrola_umisteni(sfinga,0,0,doprava,cerveny).
 kontrola_umisteni(sfinga,9,7,nahoru,stribrny).
 kontrola_umisteni(sfinga,9,7,doleva,stribrny).

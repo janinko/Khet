@@ -1,7 +1,5 @@
 /* -*- Mode:Prolog; coding:iso-8859-1; -*- */
 
-:- dynamic figurka/5 .
-
 % pripojeni souboru s dalsimi funkcemi pro hru
 :- consult('vypis.pl').
 :- consult('nacitani.pl').
@@ -23,6 +21,11 @@ khet(Soubor):-
 %khet(Soubor):-
 %        write('Chyba nacitani souboru '),write(Soubr),nl.
 
+smazFigurky:-
+        repeat,
+                \+ retract(figurka(_,_,_,_,_)),
+        !.
+        
 
 hraj:-
         vypis,
@@ -35,4 +38,19 @@ hraj:-
         tah(cerveny),
         vyhodnot_laser(cerveny),
         vypis,
-        retract(figurka(_,_,_,_,_)).        
+        tah(stribrny),
+        vyhodnot_laser(stribrny),
+        vypis,
+        tah(cerveny),
+        vyhodnot_laser(cerveny),
+        vypis,
+        tah(stribrny),
+        vyhodnot_laser(stribrny),
+        vypis,
+        tah(cerveny),
+        vyhodnot_laser(cerveny),
+        vypis,
+        tah(stribrny),
+        vyhodnot_laser(stribrny),
+        smazFigurky.
+        
