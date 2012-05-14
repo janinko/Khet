@@ -2,7 +2,7 @@
 
 vypis:-
         vypisRadek(0),
-        write('+----+----+----+----+----+----+----+----+----+----+'), nl.
+        write('+----+----+----+----+----+----+----+----+----+----+'), nl, nl.
 
 vypisRadek(Radek):-
         Radek < 8, !,
@@ -25,6 +25,9 @@ vypisFigurku(Radek,Sloupec):-
         vypisTyp(Typ),
         vypisBarvu(Barva),
         vypisSmer(Typ,Smer).
+vypisFigurku(Radek,Sloupec):-
+        laser(Sloupec,Radek, Smer),
+        vypisLaser(Smer).
 vypisFigurku(_,_):-
         write('    ').
 
@@ -44,6 +47,11 @@ vypisSmer(_,nahoru):- write(' ^').
 vypisSmer(_,dolu):- write(' v').
 vypisSmer(_,doleva):- write(' <').
 vypisSmer(_,doprava):- write(' >').
+
+vypisLaser(dolu):- write(' |. ').
+vypisLaser(nahoru):- write(' |\' ').
+vypisLaser(doleva):- write(' <- ').
+vypisLaser(doprava):- write(' -> ').
 
 vypisBarvu(cerveny):- write('#').
 vypisBarvu(stribrny):- write('&').
