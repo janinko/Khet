@@ -2,17 +2,21 @@
 
 :- dynamic figurka/5 .
 
+% pripojeni souboru s dalsimi funkcemi pro hru
 :- consult('vypis.pl').
-/*:- consult('otevreni.pl').*/
+:- consult('nacitani.pl').
 :- consult('hra.pl').
 :- consult('laser.pl').
 
+% spusteni khet bez parametru spusti hru se stadartnim rozestavenim
 khet:-
         nacti('classic.pl'),!,
         hraj.
 %khet:-
 %        write('Poskozeny soubor classic.pl!'),nl.
-        
+
+%spusteni hry khet s jinym nez defaultnim rozestavenim
+% napriklad imhotep, dynasty nebo vlastnim rozestavenim        
 khet(Soubor):-
         nacti(Soubor),!,
         hraj.
@@ -31,33 +35,4 @@ hraj:-
         tah(cerveny),
         vyhodnot_laser(cerveny),
         vypis,
-        retract(figurka(_,_,_,_,_)).
-
-nacti( Soubor ) :-
-        seeing( StarySoubor ),
-        see( Soubor ),
-        repeat,
-                read( Term ), 
-                process_term( Term ), 
-                Term == end_of_file, 
-        !,
-        seen, 
-        see( StarySoubor ). 
-
-process_term(Term):-
-        assert(Term).
-
-
-
-nacti(Soubor):-
-        read(Term),
-        nactiTerm(Term). 
-        
-        
-        
-nactiTerm(end_of_file).
-nactiTerm(Term):-
-        processTerm(Term),
-        read(NewTerm),
-        nactiTerm(NewTerm).
-        
+        retract(figurka(_,_,_,_,_)).        

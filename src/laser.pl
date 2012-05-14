@@ -2,14 +2,17 @@
 
 :- dynamic laser/3 .
 :- use_module(library(system)).
-   
+
+% procedura pro vyhodnocovani laseru   
 vyhodnot_laser(Barva):-
         figurka(sfinga,X,Y,Smer,Barva),
         dalsi_pozice(X,Y,X2,Y2,Smer),
         \+ posun(X2,Y2,Smer).
         
                           
-
+% posuna laser na ziskane souradnice
+% pokud je pole prazdne vypise laser
+% pokud je na pole obsazene figurkou tka vyhodnoti zasah
 posun(X,Y,Smer):-
         X >= 0, Y>= 0, X<10, Y<8,
         vypisLaser(X,Y,Smer),
@@ -22,18 +25,20 @@ posun(X,Y,Smer):-
         dalsi_pozice(X,Y,X2,Y2,Smer),
         posun(X2,Y2,Smer).
 
+% graficke vykreslovani laseru
 vypisLaser(X,Y,Smer):-
         assert(laser(X,Y,Smer)),
         vypis,
         sleep(0.5),
         retract(laser(X,Y,Smer)), !.
 
+%vypocet poli pro posunuti lasru
 dalsi_pozice(X,Y,X2,Y,doprava):- X2 is X +1.
 dalsi_pozice(X,Y,X2,Y,doleva):-  X2 is X -1.
 dalsi_pozice(X,Y,X,Y2,dolu):-    Y2 is Y +1.
 dalsi_pozice(X,Y,X,Y2,nahoru):-  Y2 is Y -1.
 
-
+%databaze pro vyhodnoceni zasahu laseru a odrazu
 vyhodnot(pyramid,dolu,doleva,dolu,_,_).
 vyhodnot(pyramid,dolu,nahoru,doprava,_,_).
 vyhodnot(pyramid,doleva,doprava,dolu,_,_).

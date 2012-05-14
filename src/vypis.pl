@@ -1,11 +1,14 @@
 /* -*- Mode:Prolog; coding:iso-8859-1; -*- */
 
+
+% vykreslovani hraciho pole na obrazovku
 vypis:-
         write('     0    1    2    3    4    5    6    7    8    9  '), nl,
         vypisRadek(0),
         write('  +----+----+----+----+----+----+----+----+----+----+'), nl,
         flush_output.
 
+% vypisovani radku mezi poli
 vypisRadek(Radek):-
         Radek < 8, !,
         write('  +----+----+----+----+----+----+----+----+----+----+'), nl,
@@ -17,6 +20,7 @@ vypisRadek(Radek):-
         vypisRadek(Radek2).
 vypisRadek(_).
 
+%vypisovani sloupcu mezi poli
 vypisSloupec(Radek, Sloupec):-
         Sloupec < 10, !,
         write('|'),
@@ -25,6 +29,7 @@ vypisSloupec(Radek, Sloupec):-
         vypisSloupec(Radek, Sloupec2).
 vypisSloupec(_,_).
 
+%vypisovani figurky do pole
 vypisFigurku(Radek,Sloupec):-
         figurka(Typ, Sloupec, Radek, Smer, Barva),
         vypisTyp(Typ),
