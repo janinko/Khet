@@ -33,6 +33,7 @@ smazFigurky:-
 
 hraj:-
         \+ hraj(cerveny),
+		  vypis,
         konecHry.
      
 hraj(Barva):-
