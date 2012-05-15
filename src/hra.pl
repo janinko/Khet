@@ -1,8 +1,8 @@
 /* -*- Mode:Prolog; coding:iso-8859-1; -*- */
-
+% author: xbrazdi1, xrejta
 
 tah(Barva):-
-        write('Tahne '), write(Barva), write(': Radek Sloupec Akce (h j k l u i n m < >)'),nl,flush_output,!,
+        write('Tahne '), write(Barva), write(': Radek Sloupec Akce (napr: 30k 45> 347)'),nl,flush_output,!,
         repeat, 
                 nactiPrikaz(Vstup),
                 overPrikaz(Vstup,X,Y,P),
@@ -61,9 +61,9 @@ otoc(X,Y,SmerOtoceni):-
         assert(figurka(Typ,X,Y,NovySmer,Barva)).
 
 posun(X,Y,SmerPohybu):-
-        figurka(Typ,X,Y,_,_),
+        figurka(Typ,X,Y,_,Barva),
         spoctiPosun(X,Y,X2,Y2,SmerPohybu),
-        muzePosun(Typ,X2,Y2),
+        muzePosun(Typ,Barva,X2,Y2),
         posun(X,Y,X2,Y2,Typ).
 
 posun(X,Y,X2,Y2,scarab):-
@@ -124,8 +124,16 @@ smer(_,nahoru,doleva,doleva).
 smer(_,doprava,nahoru,doleva).
 smer(_,dolu,doprava,doleva).
 
-muzePosun(sfinga,_,_):-!,fail.
-muzePosun(scarab,0,0):-!,fail.
-muzePosun(scarab,9,7):-!,fail.
-muzePosun(scarab,_,_).
-muzePosun(_,X,Y):- \+ figurka(_,X,Y,_,_).
+muzePosun(_,cerveny,9,_):-!,fail.
+muzePosun(_,cerveny,1,0):-!,fail.
+muzePosun(_,cerveny,1,7):-!,fail.
+muzePosun(_,stribrny,0,_):-!,fail.
+muzePosun(_,stribrny,8,0):-!,fail.
+muzePosun(_,stribrny,8,7):-!,fail.
+muzePosun(sfinga,_,_,_):-!,fail.
+muzePosun(scarab,_,0,0):-!,fail.
+muzePosun(scarab,_,9,7):-!,fail.
+muzePosun(scarab,_,X,Y):- figurka(scarab,X,Y,_,_), !, fail.
+muzePosun(scarab,_,X,Y):- figurka(faraon,X,Y,_,_), !, fail.
+muzePosun(scarab,_,_,_).
+muzePosun(_,_,X,Y):- \+ figurka(_,X,Y,_,_).

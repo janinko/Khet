@@ -1,3 +1,4 @@
+% author: xrejta, xbrazdi1
 :- dynamic figurka/5.
 
 % nacitani termu ze souboru

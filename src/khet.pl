@@ -1,4 +1,5 @@
 /* -*- Mode:Prolog; coding:iso-8859-1; -*- */
+% author: xrejta, xbrazdi1
 
 % pripojeni souboru s dalsimi funkcemi pro hru
 :- consult('vypis.pl').
@@ -6,14 +7,14 @@
 :- consult('hra.pl').
 :- consult('laser.pl').
 
-% spusteni khet bez parametru spusti hru se stadartnim rozestavenim
+% spusteni khet bez parametru spusti hru se stadardnim rozestavenim
 khet:-
         nacti('classic.pl'),!,
         hraj,
         smazFigurky.
 khet:-
-        smazFigurky.
-%        write('Poskozeny soubor classic.pl!'),nl.
+        smazFigurky,
+        write('Poskozeny soubor classic.pl!'),nl,!,fail.
 
 %spusteni hry khet s jinym nez defaultnim rozestavenim
 % napriklad imhotep, dynasty nebo vlastnim rozestavenim        
@@ -21,9 +22,9 @@ khet(Soubor):-
         nacti(Soubor),!,
         hraj,
         smazFigurky.
-khet(_):-
-        smazFigurky.
-%        write('Chyba nacitani souboru '),write(Soubr),nl.
+khet(Soubr):-
+        smazFigurky,
+        write('Chyba nacitani souboru '),write(Soubr),nl,!,fail.
 
 smazFigurky:-
         repeat,

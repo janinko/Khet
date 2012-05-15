@@ -1,5 +1,5 @@
 /* -*- Mode:Prolog; coding:iso-8859-1; -*- */
-
+% author: xrejta, xbrazdi1
 
 % vykreslovani hraciho pole na obrazovku
 vypis:-
@@ -11,10 +11,10 @@ vypis:-
 % vypisovani radku mezi poli
 vypisRadek(Radek):-
         Radek < 8, !,
-        write('  +----+----+----+----+----+----+----+----+----+----+'), nl,
+        write('  +----+----+----+----+----+----+----+----+----+----+'), vypisPopisek(Radek,a),nl,
         write(Radek),write(' '),
         vypisSloupec(Radek, 0), write('|'),
-        vypisPopisek(Radek),
+        vypisPopisek(Radek,b),
         nl,
         Radek2 is Radek +1,
         vypisRadek(Radek2).
@@ -67,11 +67,19 @@ vypisBarvu(cerveny):- write('#').
 vypisBarvu(stribrny):- write('&').
 
 
-vypisPopisek(0):- write('     S - sfiga').
-vypisPopisek(1):- write('     A - anubis').
-vypisPopisek(2):- write('     F - faraon').
-vypisPopisek(3):- write('     P - pyramida').
-vypisPopisek(4):- write('     Q - scarab').
-vypisPopisek(5):- write('     # - cerveny').
-vypisPopisek(6):- write('     & - stribrny').
-vypisPopisek(_).
+vypisPopisek(0,a):- write('     S - sfiga').
+vypisPopisek(0,b):- write('     A - anubis').
+vypisPopisek(1,a):- write('     F - faraon').
+vypisPopisek(1,b):- write('     P - pyramida').
+vypisPopisek(2,a):- write('     Q - scarab').
+vypisPopisek(2,b):- write('     # - cerveny').
+vypisPopisek(3,a):- write('     & - stribrny').
+vypisPopisek(4,a):- write('  Pohyb a rotace:').
+vypisPopisek(4,b):- write('     u k i     7 8 9').
+vypisPopisek(5,a):- write('      \\|/       \\|/').
+vypisPopisek(5,b):- write('     h- -l     4- -6').
+vypisPopisek(6,a):- write('      /|\\       /|\\').
+vypisPopisek(6,b):- write('     n j m     1 2 3').
+vypisPopisek(7,a):- write('  > podle hodinovych rucicek').
+vypisPopisek(7,b):- write('  < proti hodinovym rucickam').
+vypisPopisek(_,_).

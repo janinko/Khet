@@ -1,3 +1,4 @@
+% author: xrejta, xbrazdi1
 % defaultni rozestaveni pro hru
 figurka(sfinga,0,0,dolu,cerveny).
 figurka(sfinga,9,7,nahoru,stribrny).

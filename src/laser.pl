@@ -1,4 +1,5 @@
 /* -*- Mode:Prolog; coding:iso-8859-1; -*- */
+% author: xrejta, xbrazdi1
 
 :- dynamic laser/3 .
 :- use_module(library(system)).
