@@ -1,5 +1,6 @@
-/* -*- Mode:Prolog; coding:iso-8859-1; -*- */
-% author: xrejta, xbrazdi1
+% project: 2. Khet I 
+% author: xbrazdi1, xrejta
+% prolog version: sicstus4.2.0
 
 % vykreslovani hraciho pole na obrazovku
 vypis:-

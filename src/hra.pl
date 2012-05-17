@@ -1,5 +1,6 @@
-/* -*- Mode:Prolog; coding:iso-8859-1; -*- */
+% project: 2. Khet I 
 % author: xbrazdi1, xrejta
+% prolog version: sicstus4.2.0
 
 tah(Barva):-
         write('Tahne '), write(Barva), write(': Radek Sloupec Akce (napr: 30k 45> 347)'),nl,flush_output,!,

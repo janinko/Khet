@@ -1,4 +1,7 @@
+% project: 2. Khet I 
 % author: xrejta, xbrazdi1
+% prolog version: sicstus4.2.0
+
 :- dynamic figurka/5.
 
 % nacitani termu ze souboru

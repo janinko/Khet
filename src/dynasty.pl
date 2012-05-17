@@ -1,4 +1,7 @@
+% project: 2. Khet I 
 % author: xrejta, xbrazdi1
+% prolog version: sicstus4.2.0
+
 % rozestaveni fugurek pro hru typu dynasty
 figurka(sfinga,0,0,dolu,cerveny).
 figurka(sfinga,9,7,nahoru,stribrny).
