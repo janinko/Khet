@@ -110,10 +110,10 @@ spoctiPosun(X,Y,X2,Y2,jihovychod):-
         X2 is X + 1,
         Y2 is Y + 1.
 
-smer(sfinga,dolu,vpravo,_).
-smer(sfinga,vpravo,dolu,_).
-smer(sfinga,nahoru,vlevo,_).
-smer(sfinga,vlevo,nahoru,_).
+smer(sfinga,dolu,doprava,_).
+smer(sfinga,doprava,dolu,_).
+smer(sfinga,nahoru,doleva,_).
+smer(sfinga,doleva,nahoru,_).
 smer(scarab,nahoru,dolu,_).
 smer(scarab,dolu,nahoru,_).
 smer(_,dolu,doleva,doprava).
